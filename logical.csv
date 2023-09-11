@@ -1,0 +1,7 @@
+Operator,Description
+!,NOT
+&&,AND
+||,OR
+&,Element-wise AND
+|,Element-wise OR
+

@@ -1,0 +1,3 @@
+Operator,Description
+<- 'or' = 'or' <<-, Leftwards assignment
+-> 'or' '->>', RIghtwards assignment

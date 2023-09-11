@@ -1,0 +1,8 @@
+Operator,Description
++,Addition
+-,Substraction
+*,Multiplication
+/,Division
+^,Exponent
+%%,Modulus i.e. Remainder from division
+%/%,Integer division i.e. quotient is rounded to integer 

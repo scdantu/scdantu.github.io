@@ -12,7 +12,7 @@
 <meta name="author" content="Dr. Sarath Dantu" />
 
 
-<title>Introduction to R</title>
+<title>Conditional statements</title>
 
 <script src="site_libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -398,7 +398,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Introduction to R</h1>
+<h1 class="title toc-ignore">Conditional statements</h1>
 <h4 class="author">Dr. Sarath Dantu</h4>
 <h4 class="date">28/09/20</h4>
 
@@ -408,29 +408,68 @@ div.tocify {
 <hr />
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
-<p>What is R? It is a user friendly implementation of the <code>S</code> language, developed by Rick Becker, John Chambers and Allan Wilks. You will find the detailed history, philosophy, and the documentation of various capabilities of R in its official <a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf">documentation</a>. I will not dwell on that here. The goal of this material: <code>Introduction to R</code> is to give you a crash course on the fundamental programming concepts in R. I hope it will help you reap the benefits of CS5701, CS5702, CS5706, MA5636 and MA5638. This material assumes that you have no prior knowledge of programming and are courageous enough to take on R. Do not worry, it will be fun.</p>
-<p>The strategy behind using any program is to let the computers do all the hard work. For this purpose we need to issue some instructions. The order of instructions i.e. the <strong>algorithm</strong>, has to be very precise to the dot. You have to clearly define: what needs to be done, how it has to be done and for how long. There are also rules on how we supply these instructions i.e. <strong>syntax</strong>.</p>
+<p>In programming, we would like to control the execution of code. We can impose constraints on the execution of a statement based on a condition. These statements that allow us this power are called <strong><em>control</em></strong> statements. There are two types of control statements in R, <code>if</code> and <code>switch</code></p>
+</div>
+<div id="if" class="section level2">
+<h2>if</h2>
+<p>If the condition is met perform task <code>A</code>, <code>else</code> perform task <code>B</code>.</p>
+<pre><code># pseudo code
+if (condition_1 is True)
+{
+  execute this line(s) of code
+
+}else{
+  execute this line(s) of code
+}</code></pre>
+<p>Now an example:</p>
+<pre class="r"><code>x &lt;- seq(1:10)
+if(length(x)&lt;5){
+  # Task A
+  x^x
+}else{
+  # Task B  
+  x*10
+}</code></pre>
+<pre><code>##  [1]  10  20  30  40  50  60  70  80  90 100</code></pre>
+<p>We can test for multiple conditions using:</p>
+<ul>
+<li>and <code>(&amp;&amp;)</code></li>
+<li>or <code>(||)</code></li>
+</ul>
+<p>To elaborate:</p>
+<ul>
+<li><code>if</code>, condition <code>x</code> and <code>(&amp;&amp;)</code> condition <code>y</code> are satisfied, then perform task <code>A</code>. Both conditions must be met for the execution of the statement.</li>
+<li><code>if</code>, condition <code>x</code> or <code>(||)</code> condition <code>y</code> are satisfied, then perform task <code>A</code>. If one of the conditions is met, execute the statement.</li>
+</ul>
+<pre class="r"><code>x &lt;- seq(10,100,10)
+x</code></pre>
+<pre><code>##  [1]  10  20  30  40  50  60  70  80  90 100</code></pre>
+<pre class="r"><code>if(length(x)&lt;5 &amp;&amp; sum(x)&lt;100){
+  # Task A
+  x^x
+}else if(length(x)&lt;5 ||  sum(x)&gt;100){
+  # Task B
+  x^10
+}else if(length(x)&lt;5 &amp;&amp; sum(x)==100){
+  # Task C
+  x-x
+}</code></pre>
+<pre><code>##  [1] 1.000000e+10 1.024000e+13 5.904900e+14 1.048576e+16 9.765625e+16
+##  [6] 6.046618e+17 2.824752e+18 1.073742e+19 3.486784e+19 1.000000e+20</code></pre>
 <hr />
 </div>
-<div id="list-of-contents" class="section level2">
-<h2>List of contents</h2>
-<p>In this course, we will focus on the following topics:</p>
-<ol style="list-style-type: decimal">
-<li><a href="ItR_0_Install.html">Installation</a></li>
-<li><a href="ItR_1_Objects.html">Variables</a></li>
-<li><a href="ItR_2_Functions.html">Functions</a></li>
-<li><a href="ItR_3_Conditions.html">Conditional statements</a></li>
-<li><a href="ItR_4_Loops.html">Loops</a></li>
-<li><a href="ItR_5_IO.html">Reading and Writing files</a></li>
-<li><a href="ItR_7_CLI.html">Scripting in R</a></li>
-<li><a href="ItR_8_Errors.html">Types of errors</a></li>
-<li><a href="ItR_9_Help.html">Help</a></li>
-</ol>
-<hr />
-</div>
-<div id="access-to-the-material" class="section level2">
-<h2>Access to the material</h2>
-<p>All the files (Rmarkdown and example datasets), used to create this course material, will be available from the <a href="https://blackboard.brunel.ac.uk/webapps/blackboard/content/listContent.jsp?course_id=_48062_1&amp;content_id=_1181402_1">CS5701 module</a> on Brunel University Blackboard Learn website.</p>
+<div id="switch" class="section level2">
+<h2>switch</h2>
+<p>A <code>switch</code> function can be used to avoid writing multiple lines of <code>if</code>. Given an expression, it returns a specific value that matches the expression.</p>
+<pre><code># pseudo code
+switch(expression, conditon_1=&quot;You get this&quot;,condition_2=&quot;You get something else&quot;)</code></pre>
+<p>Now an example:</p>
+<pre class="r"><code>x &lt;-  &quot;A&quot;
+switch(x,&quot;A&quot;=10,&quot;B&quot;=20,&quot;C&quot;=30,&quot;D&quot;=40)</code></pre>
+<pre><code>## [1] 10</code></pre>
+<pre class="r"><code>x &lt;-&quot;D&quot;
+switch(x,&quot;A&quot;=10,&quot;B&quot;=20,&quot;C&quot;=30,&quot;D&quot;=40)</code></pre>
+<pre><code>## [1] 40</code></pre>
 </div>
 
 &nbsp;

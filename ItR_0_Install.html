@@ -12,7 +12,7 @@
 <meta name="author" content="Dr. Sarath Dantu" />
 
 
-<title>Introduction to R</title>
+<title>Installation</title>
 
 <script src="site_libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -398,7 +398,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Introduction to R</h1>
+<h1 class="title toc-ignore">Installation</h1>
 <h4 class="author">Dr. Sarath Dantu</h4>
 <h4 class="date">28/09/20</h4>
 
@@ -406,31 +406,19 @@ div.tocify {
 
 
 <hr />
-<div id="introduction" class="section level2">
-<h2>Introduction</h2>
-<p>What is R? It is a user friendly implementation of the <code>S</code> language, developed by Rick Becker, John Chambers and Allan Wilks. You will find the detailed history, philosophy, and the documentation of various capabilities of R in its official <a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf">documentation</a>. I will not dwell on that here. The goal of this material: <code>Introduction to R</code> is to give you a crash course on the fundamental programming concepts in R. I hope it will help you reap the benefits of CS5701, CS5702, CS5706, MA5636 and MA5638. This material assumes that you have no prior knowledge of programming and are courageous enough to take on R. Do not worry, it will be fun.</p>
-<p>The strategy behind using any program is to let the computers do all the hard work. For this purpose we need to issue some instructions. The order of instructions i.e. the <strong>algorithm</strong>, has to be very precise to the dot. You have to clearly define: what needs to be done, how it has to be done and for how long. There are also rules on how we supply these instructions i.e. <strong>syntax</strong>.</p>
+<div id="r-rstudio" class="section level2">
+<h2>R &amp; RStudio</h2>
+<p>For the purpose of this course we will be requiring <a href="https://www.r-project.org">R</a> and <a href="https://rstudio.com/products/rstudio">RStudio</a>. Both are available as open source software for no cost. While R is the mastermind which will interpret our instructions, RStudio will assist us in composing those instructions. Please download R version 4.0.2 from the CRAN website, by clicking <a href="https://cran.r-project.org/bin/windows/base/">here</a> and <code>RStudio Desktop</code> version 1.3, by clicking <a href="https://rstudio.com/products/rstudio/download/">here</a>.</p>
+<p>Each software will guide you through the installation with very simple instructions and if you follow them you should be ready.</p>
 <hr />
 </div>
-<div id="list-of-contents" class="section level2">
-<h2>List of contents</h2>
-<p>In this course, we will focus on the following topics:</p>
-<ol style="list-style-type: decimal">
-<li><a href="ItR_0_Install.html">Installation</a></li>
-<li><a href="ItR_1_Objects.html">Variables</a></li>
-<li><a href="ItR_2_Functions.html">Functions</a></li>
-<li><a href="ItR_3_Conditions.html">Conditional statements</a></li>
-<li><a href="ItR_4_Loops.html">Loops</a></li>
-<li><a href="ItR_5_IO.html">Reading and Writing files</a></li>
-<li><a href="ItR_7_CLI.html">Scripting in R</a></li>
-<li><a href="ItR_8_Errors.html">Types of errors</a></li>
-<li><a href="ItR_9_Help.html">Help</a></li>
-</ol>
-<hr />
-</div>
-<div id="access-to-the-material" class="section level2">
-<h2>Access to the material</h2>
-<p>All the files (Rmarkdown and example datasets), used to create this course material, will be available from the <a href="https://blackboard.brunel.ac.uk/webapps/blackboard/content/listContent.jsp?course_id=_48062_1&amp;content_id=_1181402_1">CS5701 module</a> on Brunel University Blackboard Learn website.</p>
+<div id="librarypackage" class="section level2">
+<h2>Library/package</h2>
+<p>We do not always have to write our code from scratch. If we find a piece of code in <a href="https://cran.r-project.org">R CRAN repository</a> or on <a href="https://github.com">GitHub</a>, after checking the terms of the code release, we can use/adopt the available piece of code in the market, as permitted by the original authors under the terms of the license. Such publicly available collection of R code are generally referred to as a <strong>library</strong> or a <strong>package</strong>.</p>
+<p>Some packages are distributed with the standard R (~25) you have installed in the earlier step, and some packages you will have to install yourself. For example lets install <code>ggplot2</code> a very popular plotting package, using the command provided below:</p>
+<p><code>install.packages("ggplot2")</code></p>
+<p>Once installed, lets <strong>import</strong> it, i.e. tell R we wish to use it. Do note, that this command can be issued at any instance in the code, as long as it is done before using the nice functions from the package:</p>
+<pre class="r"><code>library(ggplot2)</code></pre>
 </div>
 
 &nbsp;

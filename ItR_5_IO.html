@@ -12,7 +12,7 @@
 <meta name="author" content="Dr. Sarath Dantu" />
 
 
-<title>Introduction to R</title>
+<title>File Reading/Writing</title>
 
 <script src="site_libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -398,7 +398,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Introduction to R</h1>
+<h1 class="title toc-ignore">File Reading/Writing</h1>
 <h4 class="author">Dr. Sarath Dantu</h4>
 <h4 class="date">28/09/20</h4>
 
@@ -406,31 +406,28 @@ div.tocify {
 
 
 <hr />
-<div id="introduction" class="section level2">
-<h2>Introduction</h2>
-<p>What is R? It is a user friendly implementation of the <code>S</code> language, developed by Rick Becker, John Chambers and Allan Wilks. You will find the detailed history, philosophy, and the documentation of various capabilities of R in its official <a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf">documentation</a>. I will not dwell on that here. The goal of this material: <code>Introduction to R</code> is to give you a crash course on the fundamental programming concepts in R. I hope it will help you reap the benefits of CS5701, CS5702, CS5706, MA5636 and MA5638. This material assumes that you have no prior knowledge of programming and are courageous enough to take on R. Do not worry, it will be fun.</p>
-<p>The strategy behind using any program is to let the computers do all the hard work. For this purpose we need to issue some instructions. The order of instructions i.e. the <strong>algorithm</strong>, has to be very precise to the dot. You have to clearly define: what needs to be done, how it has to be done and for how long. There are also rules on how we supply these instructions i.e. <strong>syntax</strong>.</p>
-<hr />
+<p>If you are working in industry or academic research you will be working with data stored neatly (hopefully) in files. So it is highly desired to learn how to get data from a file into R. The idea is to get all the data from the file very carefully into an R object and from there we are in our home territory.</p>
+<div id="read" class="section level3">
+<h3>read</h3>
+<pre class="r"><code>#this line below reads the csv straight into a data frame called worms
+worms&lt;-read.csv(&quot;worms.csv&quot;)
+#this line below prints the head (or top) of the data frame
+head(worms)</code></pre>
+<pre><code>##        Field.Name Area Slope Vegetation Soil.pH  Damp Worm.density
+## 1     Nashs.Field  3.6    11  Grassland     4.1 FALSE            4
+## 2  Silwood.Bottom  5.1     2     Arable     5.2 FALSE            7
+## 3   Nursery.Field  2.8     3  Grassland     4.3 FALSE            2
+## 4     Rush.Meadow  2.4     5     Meadow     4.9  TRUE            5
+## 5 Gunness.Thicket  3.8     0      Scrub     4.2 FALSE            6
+## 6        Oak.Mead  3.1     2  Grassland     3.9 FALSE            2</code></pre>
 </div>
-<div id="list-of-contents" class="section level2">
-<h2>List of contents</h2>
-<p>In this course, we will focus on the following topics:</p>
-<ol style="list-style-type: decimal">
-<li><a href="ItR_0_Install.html">Installation</a></li>
-<li><a href="ItR_1_Objects.html">Variables</a></li>
-<li><a href="ItR_2_Functions.html">Functions</a></li>
-<li><a href="ItR_3_Conditions.html">Conditional statements</a></li>
-<li><a href="ItR_4_Loops.html">Loops</a></li>
-<li><a href="ItR_5_IO.html">Reading and Writing files</a></li>
-<li><a href="ItR_7_CLI.html">Scripting in R</a></li>
-<li><a href="ItR_8_Errors.html">Types of errors</a></li>
-<li><a href="ItR_9_Help.html">Help</a></li>
-</ol>
-<hr />
-</div>
-<div id="access-to-the-material" class="section level2">
-<h2>Access to the material</h2>
-<p>All the files (Rmarkdown and example datasets), used to create this course material, will be available from the <a href="https://blackboard.brunel.ac.uk/webapps/blackboard/content/listContent.jsp?course_id=_48062_1&amp;content_id=_1181402_1">CS5701 module</a> on Brunel University Blackboard Learn website.</p>
+<div id="write" class="section level3">
+<h3>write</h3>
+<p>To save a file, it is a very easy:</p>
+<pre class="r"><code># just provide the object and the file name
+
+write.csv(worms,&quot;new_worms.csv&quot;)</code></pre>
+<p>There are plethora of inbuilt R functions, that will help you read and write files. In the help window of RStudio type <code>read</code> or <code>write</code> and press enter to check what is available.</p>
 </div>
 
 &nbsp;

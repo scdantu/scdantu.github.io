@@ -12,7 +12,7 @@
 <meta name="author" content="Dr. Sarath Dantu" />
 
 
-<title>Introduction to R</title>
+<title>Errors</title>
 
 <script src="site_libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -398,7 +398,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Introduction to R</h1>
+<h1 class="title toc-ignore">Errors</h1>
 <h4 class="author">Dr. Sarath Dantu</h4>
 <h4 class="date">28/09/20</h4>
 
@@ -406,31 +406,51 @@ div.tocify {
 
 
 <hr />
-<div id="introduction" class="section level2">
-<h2>Introduction</h2>
-<p>What is R? It is a user friendly implementation of the <code>S</code> language, developed by Rick Becker, John Chambers and Allan Wilks. You will find the detailed history, philosophy, and the documentation of various capabilities of R in its official <a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf">documentation</a>. I will not dwell on that here. The goal of this material: <code>Introduction to R</code> is to give you a crash course on the fundamental programming concepts in R. I hope it will help you reap the benefits of CS5701, CS5702, CS5706, MA5636 and MA5638. This material assumes that you have no prior knowledge of programming and are courageous enough to take on R. Do not worry, it will be fun.</p>
-<p>The strategy behind using any program is to let the computers do all the hard work. For this purpose we need to issue some instructions. The order of instructions i.e. the <strong>algorithm</strong>, has to be very precise to the dot. You have to clearly define: what needs to be done, how it has to be done and for how long. There are also rules on how we supply these instructions i.e. <strong>syntax</strong>.</p>
+<div id="errors" class="section level2">
+<h2>Errors</h2>
+<p>R is an interpreter language. It reads each <strong><em>complete instruction</em></strong> and executes it. I emphasize on complete, because while doing any of the tutorial, if you run into tantrums from R please check if any of the categories explained below.</p>
+<hr />
+<div id="syntax-error" class="section level3">
+<h3>Syntax error</h3>
+<p>Errors introduced because of incorrect command syntax.</p>
+<p>Did I miss any brackets i.e. <code>(),[],{}</code> or quotes <code>"",'',</code> or a <code>,</code>? For fun, try to run the command below by omitting any of your favorite punctuation:</p>
+<pre class="r"><code>a &lt;- {c(&quot;x&quot;,&quot;y&quot;,&#39;z&#39;)}</code></pre>
+<p>For many more examples on syntax and <code>R</code> style guide, please refer to this helpful <a href="http://adv-r.had.co.nz/Style.html">link</a></p>
+<p>Did I make any spelling mistakes in the name of the objects/functions/file names? The example below should also give you an insight into the complications that might arise if the object/function names are not simple.</p>
+<pre class="r"><code>chiaroscurist &lt;- 750
+brobdingnagian &lt;- 4929
+chiaroscurist+brobdingnagian</code></pre>
+<pre><code>## [1] 5679</code></pre>
 <hr />
 </div>
-<div id="list-of-contents" class="section level2">
-<h2>List of contents</h2>
-<p>In this course, we will focus on the following topics:</p>
-<ol style="list-style-type: decimal">
-<li><a href="ItR_0_Install.html">Installation</a></li>
-<li><a href="ItR_1_Objects.html">Variables</a></li>
-<li><a href="ItR_2_Functions.html">Functions</a></li>
-<li><a href="ItR_3_Conditions.html">Conditional statements</a></li>
-<li><a href="ItR_4_Loops.html">Loops</a></li>
-<li><a href="ItR_5_IO.html">Reading and Writing files</a></li>
-<li><a href="ItR_7_CLI.html">Scripting in R</a></li>
-<li><a href="ItR_8_Errors.html">Types of errors</a></li>
-<li><a href="ItR_9_Help.html">Help</a></li>
-</ol>
+<div id="logical-error" class="section level3">
+<h3>Logical error</h3>
+<p>Errors introduced because of flawed logic Is my command complete i.e. did I miss some input value or did I provide an empty data set?</p>
+<pre class="r"><code>x &lt;- 2 # change 2 to &quot;2&quot; and see what happens
+y &lt;- 4929
+x+y</code></pre>
+<pre><code>## [1] 4931</code></pre>
+<p>Is the sequence of instructions correct?</p>
+<pre class="r"><code>x &lt;- 2 # change 2 to &quot;2&quot; and see what happens
+y &lt;- 4929
+x+y</code></pre>
+<pre><code>## [1] 4931</code></pre>
 <hr />
 </div>
-<div id="access-to-the-material" class="section level2">
-<h2>Access to the material</h2>
-<p>All the files (Rmarkdown and example datasets), used to create this course material, will be available from the <a href="https://blackboard.brunel.ac.uk/webapps/blackboard/content/listContent.jsp?course_id=_48062_1&amp;content_id=_1181402_1">CS5701 module</a> on Brunel University Blackboard Learn website.</p>
+<div id="arithmetic-errors" class="section level3">
+<h3>Arithmetic errors</h3>
+<p>We might notice that sometimes the numbers we are trying to compute do not make any sense. Before we blame <code>R</code>, lets check if we are asking <code>R</code> to do the math in the right order:</p>
+<p><span class="math inline">\(f(x)=1/(a+b)\)</span></p>
+<pre class="r"><code>a &lt;- 90
+b &lt;- 10
+1/(90-10)</code></pre>
+<pre><code>## [1] 0.0125</code></pre>
+<p>Bonus points if you can point out what did I wrong here:</p>
+<pre class="r"><code>a &lt;- 90
+b &lt;- 10
+1/90+10</code></pre>
+<pre><code>## [1] 10.01111</code></pre>
+</div>
 </div>
 
 &nbsp;
